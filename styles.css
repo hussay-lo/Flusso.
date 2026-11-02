@@ -1,0 +1,229 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@800&display=swap');
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+html {
+  overscroll-behavior: none;
+}
+body {
+  overflow-x: hidden;
+}
+.flusso-header {
+  display: flex;
+  align-items: center;
+
+  min-height: 5rem;
+  background-color: #0eca6c;
+  padding-top: 0.9rem;
+
+  position: fixed;
+  z-index: 1000;
+  top: 0;
+  left: 0;
+  width: 100%;
+
+}
+.flusso-logo {
+
+  width: 6rem;
+  margin-left: 3rem;
+  
+}
+.flusso-name {
+    font-family: 'Outfit', sans-serif;
+    font-size: 1.8rem;
+    font-weight: 800;
+    margin-left: -36px;
+
+    color: #ffffff;
+}
+
+.flusso-nav {
+  display: flex;
+  margin-left: auto;
+  margin-right: 10rem;
+  gap: 1.9rem;
+}
+
+.flusso-nav a {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+
+  color: #ffffff;
+  text-decoration: none;
+
+  font-family: sans-serif;
+  font-size: 1.2rem;
+
+  border-radius: 50px;
+  padding: 1rem;
+  height: 3.2rem;
+
+  background-color: transparent;
+}
+
+a:hover {
+  background-image: linear-gradient(rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0.15));
+}
+
+.flusso-learn {
+  background-color: #ffffff
+  !important;
+  font-size: 1.2rem !important;
+  color: #008540 !important;
+  font-weight: bolder;
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.05) #ffffff;
+}
+
+.flusso-learn:hover {
+  background-color: #E8F5EE !important;
+}
+
+.flusso-main {
+  width: 100%;
+  background-color: #0eca6c;
+  height: 26rem;
+  position: relative;
+
+  margin-top: 5rem;
+}
+.flusso-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  width: 100%;
+  height: 100%;
+  
+  padding-top: 2rem;
+
+}
+
+.flusso-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-right: auto;
+  margin-left: 4rem;
+  gap: 2rem;
+}
+.flusso-advice {
+  color: #ffffff;
+  text-align: center;
+  font-family: sans-serif;
+  font-size: 3rem;
+  max-width: 20ch;
+  word-break: break-word;
+
+  margin-bottom: 2rem;
+}
+.flusso-background {
+  width: 40rem;
+  position: absolute;
+  right: 2rem;
+  top: 50%;
+  translate: -1rem ;
+  transform: translateY(-50%);
+  
+}
+
+.flusso-enter {
+  background-color: #CD212A;
+  color: #ffffff;
+  
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
+  
+
+  font-weight: bolder;
+  font-family: sans-serif;
+  text-decoration: none;
+  width: max-content;
+  font-size: 2rem;
+
+  border-radius: 50px;
+  padding: 1rem;
+}
+
+@media (max-width: 1116px) {
+  .flusso-logo {
+    width: 5rem;
+  }
+  .flusso-name {
+    margin-left: -30px;
+  }
+  .flusso-content {
+    margin-left: 2rem;
+  }
+
+  .flusso-advice {
+    font-size: clamp(2rem, 4.5vw, 3rem);
+  }
+  .flusso-background {
+    width: 60%;
+    translate: 5rem;
+  }
+}
+
+@media (max-width: 768px) {
+
+  .flusso-logo {
+    margin-left: 2.5rem;
+    width: 5rem;
+  }
+
+  .flusso-nav {
+    margin-right: 3rem;
+  }
+
+  .flusso-nav a {
+    font-size: 1rem;
+    padding: 0.5rem 0.8rem;
+    height: 2.4rem;
+    justify-content: center;
+
+    background-color: #ffffff;
+    color: #008540;
+  }
+  a:hover {
+    background-color: #E8F5EE !important;
+  }
+
+  .flusso-nav .flusso-learn,
+  .flusso-nav .flusso-meet {
+    display: none;
+  }
+  .flusso-main {
+    height: auto;
+  }
+
+  .flusso-section {
+    height: auto;
+    padding-bottom: 2rem;
+    
+  }
+
+  .flusso-content {
+    margin: 0 1rem;
+  }
+
+  .flusso-advice {
+    font-size: clamp(2rem, 9vw, 2.5rem);
+    margin-bottom: 0;
+  }
+  .flusso-enter {
+    font-size: 1.8rem;
+  }
+  .flusso-background {
+    position: static;
+    translate: none;
+    transform: none;
+    width: 80%;
+    max-width: 370px;
+    align-self: center;
+    margin-top: 1.5rem;
+  }
+}
