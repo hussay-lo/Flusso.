@@ -1,229 +1,403 @@
-@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@800&display=swap');
-
 * {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
 }
+
 html {
   overscroll-behavior: none;
+  -webkit-text-size-adjust: 100%;
 }
+
 body {
   overflow-x: hidden;
+  background: #f2f7f3;
+  color: #0d2a1a;
+  font-family: "Figtree", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+::selection {
+  background: #c41a20;
+  color: #ffffff;
+}
+
+.flusso-header :focus-visible,
+.flusso-main :focus-visible {
+  outline: 3px solid #ffffff;
+  outline-offset: 3px;
+}
+
 .flusso-header {
-  display: flex;
-  align-items: center;
-
-  min-height: 5rem;
-  background-color: #0eca6c;
-  padding-top: 0.9rem;
-
   position: fixed;
   z-index: 1000;
   top: 0;
   left: 0;
   width: 100%;
 
+  display: flex;
+  align-items: center;
+
+  min-height: 5rem;
+  padding-top: 0.9rem;
+
+  padding-inline: max(
+    clamp(1.25rem, 5vw, 3rem),
+    calc((100% - 78rem) / 2 + clamp(1.25rem, 5vw, 3rem))
+  );
+
+  background: #1e7f3c;
 }
+
+.flusso-brand {
+  display: flex;
+  align-items: center;
+  color: inherit;
+  text-decoration: none;
+  border-radius: 0.75rem;
+}
+
 .flusso-logo {
-
   width: 6rem;
-  margin-left: 3rem;
-  
+  height: auto;
 }
-.flusso-name {
-    font-family: 'Outfit', sans-serif;
-    font-size: 1.8rem;
-    font-weight: 800;
-    margin-left: -36px;
 
-    color: #ffffff;
+.flusso-name {
+  margin-left: calc(6rem * -0.375);
+
+  font-family: "Chakra Petch", "Segoe UI", system-ui, sans-serif;
+  font-size: 1.8rem;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #ffffff;
 }
 
 .flusso-nav {
   display: flex;
+  align-items: center;
+  gap: 0.4rem;
   margin-left: auto;
-  margin-right: 10rem;
-  gap: 1.9rem;
 }
 
 .flusso-nav a {
-  display: flex;
+  display: inline-flex;
   align-items: center;
-  flex-direction: column;
+  justify-content: center;
 
-  color: #ffffff;
+  height: 2.75rem;
+  padding: 0 1.2rem;
+  border-radius: 999px;
+
+  font-family: "Figtree", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  font-size: 1.05rem;
+  font-weight: 600;
   text-decoration: none;
-
-  font-family: sans-serif;
-  font-size: 1.2rem;
-
-  border-radius: 50px;
-  padding: 1rem;
-  height: 3.2rem;
-
+  color: #ffffff;
   background-color: transparent;
+
+  transition: background-color 0.2s ease;
 }
 
-a:hover {
-  background-image: linear-gradient(rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0.15));
+.flusso-nav a:hover {
+  background-color: rgba(255, 255, 255, 0.14);
 }
 
-.flusso-learn {
-  background-color: #ffffff
-  !important;
-  font-size: 1.2rem !important;
-  color: #008540 !important;
-  font-weight: bolder;
-  box-shadow: 0 0 20px rgba(255, 255, 255, 0.05) #ffffff;
+.flusso-nav .flusso-learn {
+  margin-inline: 0.25rem;
+  background-color: #ffffff;
+  color: #008540;
+  font-weight: 700;
 }
 
-.flusso-learn:hover {
-  background-color: #E8F5EE !important;
+.flusso-nav .flusso-learn:hover {
+  background-color: #e8f5ee;
+}
+
+@media (min-width: 769px) {
+  .flusso-nav a:first-child {
+    box-shadow: inset 0 0 0 1.5px rgba(255, 255, 255, 0.45);
+  }
 }
 
 .flusso-main {
-  width: 100%;
-  background-color: #0eca6c;
-  height: 26rem;
   position: relative;
+  isolation: isolate;
+  overflow: hidden;
+
+  display: flex;
+  align-items: center;
 
   margin-top: 5rem;
-}
-.flusso-section {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+  min-height: clamp(30rem, calc(100vh - 5rem), 46rem);
+  min-height: clamp(30rem, calc(100svh - 5rem), 46rem);
 
+  background: #1e7f3c;
+  color: #ffffff;
+}
+
+.flusso-main::after {
+  content: "";
+  position: absolute;
+  z-index: 2;
+  left: 0;
+  right: 0;
+  bottom: -1px;
+  height: clamp(2.5rem, 6vw, 5rem);
+  pointer-events: none;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 80' preserveAspectRatio='none'%3E%3Cpath fill='%23f2f7f3' d='M0 44C220 92 470 4 740 38s520 44 700-26V80H0Z'/%3E%3C/svg%3E")
+    center bottom / 100% 100% no-repeat;
+}
+
+.flusso-flow {
+  position: absolute;
+  z-index: 0;
+  inset: 0;
   width: 100%;
   height: 100%;
-  
-  padding-top: 2rem;
+  pointer-events: none;
+}
 
+.flusso-flow path {
+  fill: none;
+  stroke-linecap: round;
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  animation-name: flusso-draw;
+  animation-duration: 2.8s;
+  animation-timing-function: cubic-bezier(0.22, 0.7, 0.2, 1);
+  animation-delay: calc(var(--i) * 110ms + 150ms);
+  animation-fill-mode: forwards;
+}
+
+.flusso-flow path:nth-child(3n + 1) {
+  stroke: #9be6a5;
+  stroke-width: 2;
+  opacity: 0.55;
+}
+
+.flusso-flow path:nth-child(3n + 2) {
+  stroke: #ffffff;
+  stroke-width: 1.5;
+  opacity: 0.22;
+}
+
+.flusso-flow path:nth-child(3n) {
+  stroke: #4caf50;
+  stroke-width: 2;
+  opacity: 0.9;
+}
+
+@keyframes flusso-draw {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+.flusso-section {
+  position: relative;
+  z-index: 1;
+
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+  align-items: center;
+  column-gap: clamp(1rem, 4vw, 4rem);
+
+  width: 100%;
+  max-width: 78rem;
+  margin-inline: auto;
+  padding: 3rem clamp(1.25rem, 5vw, 3rem) calc(clamp(2.5rem, 6vw, 5rem) + 1.5rem);
+}
+
+.flusso-section::before {
+  content: "";
+  grid-area: 1 / 2;
+  justify-self: center;
+  align-self: center;
+
+  width: min(100%, 30rem);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: #4caf50;
 }
 
 .flusso-content {
+  grid-area: 1 / 1;
+
   display: flex;
   flex-direction: column;
-  align-items: center;
-  margin-right: auto;
-  margin-left: 4rem;
-  gap: 2rem;
+  align-items: flex-start;
+  gap: 2.25rem;
 }
-.flusso-advice {
-  color: #ffffff;
-  text-align: center;
-  font-family: sans-serif;
-  font-size: 3rem;
-  max-width: 20ch;
-  word-break: break-word;
 
-  margin-bottom: 2rem;
-}
-.flusso-background {
-  width: 40rem;
-  position: absolute;
-  right: 2rem;
-  top: 50%;
-  translate: -1rem ;
-  transform: translateY(-50%);
-  
+.flusso-advice {
+  max-width: 13ch;
+
+  font-family: "Chakra Petch", "Segoe UI", system-ui, sans-serif;
+  font-size: clamp(2.6rem, 5.6vw, 4.75rem);
+  font-weight: 700;
+  line-height: 1.03;
+  letter-spacing: -0.012em;
+  text-wrap: balance;
+  color: #ffffff;
 }
 
 .flusso-enter {
-  background-color: #CD212A;
-  color: #ffffff;
-  
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
-  
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 
-  font-weight: bolder;
-  font-family: sans-serif;
-  text-decoration: none;
   width: max-content;
-  font-size: 2rem;
+  padding: 1.05rem 2.2rem;
+  border-radius: 999px;
 
-  border-radius: 50px;
-  padding: 1rem;
+  background: linear-gradient(180deg, #c41a20 0%, #e0314a 100%);
+  color: #ffffff;
+
+  font-family: "Figtree", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  font-size: 1.25rem;
+  font-weight: 700;
+  text-decoration: none;
+
+  box-shadow:
+    0 0 0 3px rgba(255, 255, 255, 0.3),
+    0 14px 26px -10px rgba(50, 0, 8, 0.6);
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    filter 0.2s ease;
+}
+
+.flusso-enter:hover {
+  transform: translateY(-2px);
+  filter: brightness(1.08);
+  box-shadow:
+    0 0 0 3px rgba(255, 255, 255, 0.5),
+    0 18px 30px -10px rgba(50, 0, 8, 0.65);
+}
+
+.flusso-enter:active {
+  transform: translateY(0);
+}
+
+.flusso-background {
+  grid-area: 1 / 2;
+  justify-self: center;
+  align-self: center;
+
+  width: min(112%, 38rem);
+  max-width: none;
+  max-height: 36rem;
+  object-fit: contain;
+  filter: drop-shadow(0 20px 24px rgba(0, 40, 15, 0.3));
 }
 
 @media (max-width: 1116px) {
+  
   .flusso-logo {
     width: 5rem;
   }
   .flusso-name {
-    margin-left: -30px;
-  }
-  .flusso-content {
-    margin-left: 2rem;
-  }
-
-  .flusso-advice {
-    font-size: clamp(2rem, 4.5vw, 3rem);
-  }
-  .flusso-background {
-    width: 60%;
-    translate: 5rem;
+    margin-left: calc(5rem * -0.375);
   }
 }
 
 @media (max-width: 768px) {
-
   .flusso-logo {
-    margin-left: 2.5rem;
     width: 5rem;
   }
-
-  .flusso-nav {
-    margin-right: 3rem;
+  .flusso-name {
+    margin-left: calc(5.0rem * -0.375);
   }
 
   .flusso-nav a {
+    height: 2.5rem;
+    padding: 0 1.1rem;
     font-size: 1rem;
-    padding: 0.5rem 0.8rem;
-    height: 2.4rem;
-    justify-content: center;
-
     background-color: #ffffff;
     color: #008540;
   }
-  a:hover {
-    background-color: #E8F5EE !important;
+
+  .flusso-nav a:hover {
+    background-color: #e8f5ee;
   }
 
   .flusso-nav .flusso-learn,
   .flusso-nav .flusso-meet {
     display: none;
   }
+
   .flusso-main {
-    height: auto;
+    min-height: 0;
   }
 
   .flusso-section {
-    height: auto;
-    padding-bottom: 2rem;
-    
+    grid-template-columns: minmax(0, 1fr);
+    row-gap: 1.5rem;
+    padding-top: 2.5rem;
   }
 
   .flusso-content {
-    margin: 0 1rem;
+    grid-area: 1 / 1;
+    align-items: center;
+    gap: 1.75rem;
+    text-align: center;
   }
 
   .flusso-advice {
-    font-size: clamp(2rem, 9vw, 2.5rem);
-    margin-bottom: 0;
+    max-width: 14ch;
+    font-size: clamp(2.25rem, 10vw, 3rem);
   }
+
   .flusso-enter {
-    font-size: 1.8rem;
+    font-size: 1.15rem;
+    padding: 0.95rem 1.9rem;
   }
+
+  .flusso-section::before {
+    grid-area: 2 / 1;
+    width: min(78%, 18rem);
+  }
+
   .flusso-background {
-    position: static;
-    translate: none;
+    grid-area: 2 / 1;
+    width: min(100%, 20rem);
+    max-height: 16rem;
+  }
+}
+
+@media (max-width: 420px) {
+  .flusso-logo {
+    width: 4.25rem;
+  }
+  
+  .flusso-name {
+    font-size: 1.5rem;
+    letter-spacing: 1.5px;
+    margin-left: calc(4.25rem * -0.375);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .flusso-flow path {
+    animation: none;
+    stroke-dashoffset: 0;
+  }
+
+  .flusso-nav a,
+  .flusso-enter {
+    transition: none;
+  }
+
+  .flusso-enter:hover {
     transform: none;
-    width: 80%;
-    max-width: 370px;
-    align-self: center;
-    margin-top: 1.5rem;
   }
 }
