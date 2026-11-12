@@ -1,0 +1,224 @@
+:root {
+ 
+  --green: #2f9e4f;
+  --green-dark: #1e7f3c;
+  --green-light: #e8f4ea;
+ 
+  --red: #cd212a;
+  --red-light: #de3b47;
+  --red-dark: #a8181f;
+
+  --ink: #12301f;
+  --muted: #5e7b69;
+  --line: #d3e3d8;
+  --white: #ffffff;
+ 
+  --radius: 18px;
+  --radius-pill: 999px;
+ 
+  --header-height: 5rem;
+}
+ 
+ 
+.inner-page {
+  background: var(--white);
+}
+ 
+ 
+@media (min-width: 769px) {
+ 
+  .inner-page .flusso-nav a {
+    border: 2px solid transparent;
+    box-shadow: none;
+    background-color: transparent;
+    color: #ffffff;
+    transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+  }
+ 
+  .inner-page .flusso-nav a:hover,
+  .inner-page .flusso-nav a:focus-visible {
+    border-color: #ffffff;
+    background-color: transparent;
+  }
+ 
+  .inner-page .flusso-nav a[aria-current="page"] {
+    background-color: #ffffff;
+    border-color: #ffffff;
+    color: #008540;
+    font-weight: 700;
+  }
+}
+ 
+
+.learn-html {
+  max-width: 480px;
+  margin: 0 auto;
+  padding: calc(var(--header-height) + 24px) 16px 48px;
+ 
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+ 
+.actions {
+  display: flex;
+  gap: 12px;
+}
+ 
+ 
+
+ 
+.learn-card {
+  background: var(--white);
+  border: 3px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: 0 8px 24px rgba(18, 48, 31, 0.08);
+ 
+  min-height: 220px;
+  padding: 40px 20px;
+ 
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  text-align: center;
+}
+ 
+
+.card-word {
+  margin: 0;
+  font-family: "Chakra Petch", "Segoe UI", system-ui, sans-serif;
+  font-size: 2.25rem;
+  font-weight: 700;
+  line-height: 1.1;
+  color: var(--green-dark);
+}
+ 
+
+.card-translation {
+  margin: 0;
+  min-height: 1.5em;
+  font-size: 1.125rem;
+  font-weight: 500;
+  color: var(--muted);
+}
+
+.btn {
+  flex: 1;
+  padding: 16px 24px;
+  border: 3px solid transparent;
+  border-radius: var(--radius-pill);
+
+  font-family: inherit;
+  font-size: 1.125rem;
+  font-weight: 800;
+  cursor: pointer;
+
+  transition: transform 0.1s ease, box-shadow 0.1s ease,
+  background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
+
+.btn:focus-visible {
+  outline: 3px solid var(--green);
+  outline-offset: 3px;
+}
+
+.btn-primary {
+  background: linear-gradient(180deg, #c41a20 0%, #e0314a 100%);
+}
+.btn-primary:hover {
+  filter: brightness(1.08);
+}
+
+.btn-primary:active {
+  transform: translateY(3px);
+
+  box-shadow: 0 1px 0 var(--red-dark), inset 0 0 2px 0 rgba(255, 255, 255, 0.3);
+}
+
+.btn-outline {
+  background-color: var(--white);
+  border-color: var(--red);
+  color: var(--red);
+}
+
+.btn-outline:hover {
+  background: rgba(205, 33, 42, 0.08);
+}
+
+.btn-outline:active {
+  transform: scale(0.97);
+}
+
+.btn-outline.is-saved {
+  background: var(--green-light);
+  border-color: var(--green);
+  color: var(--green-dark);
+}
+
+.btn-outline.is-saved::before {
+  content: "\2713";
+  margin-right: 8px;
+}
+
+.saved-title {
+  margin-bottom: 12px;
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: var(--ink);
+}
+
+.saved-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.saved-list:empty::before {
+  content: "No saved words yet";
+
+  padding: 20px;
+  border: 3px dashed var(--line);
+  border-radius: var(--radius);
+  text-align: center;
+  color: var(--muted);
+  font-weight: 500;
+}
+
+.saved-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+
+  padding: 16px 20px;
+  background: var(--white);
+  border: 3px solid var(--line);
+  border-radius: var(--radius);
+
+  transition: border-color 0.2s ease, background-color 0.2s ease;
+}
+
+.saved-item:hover {
+  border-color: var(--green);
+  background: var(--green-light);
+}
+
+.saved-it {
+  font-weight: 800;
+  color: var(--green-dark);
+}
+
+.saved-en {
+  font-size: 0.95rem;
+  color: var(--muted);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .btn,
+  .saved-item {
+    transition: none;
+  }
+}
